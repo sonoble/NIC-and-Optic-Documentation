@@ -102,26 +102,56 @@ The ConnectX-6 series provides 100/200Gb/s connectivity with support for both NR
 ## ConnectX-7 Family
 
 ### Overview
-The ConnectX-7 introduces 400Gb/s connectivity using 100G-PAM4 signaling on QSFP112 form factor.
+The ConnectX-7 introduces 400Gb/s connectivity using 100G-PAM4 signaling, available in both QSFP112 and OSFP form factors.
 
 ### Models
 
-#### ConnectX-7 NDR/400GbE
-- **Speeds:** Up to 400Gb/s (single port) or 2x200Gb/s (dual port)
+#### ConnectX-7 QSFP112 Variants
+
+**Single-Port 400GbE/NDR (QSFP112):**
+- **Speeds:** 400Gb/s
 - **Form Factor:** QSFP112
 - **Host Interface:** PCIe 5.0 x16
-- **SerDes Technology:** 100Gb/s PAM4 (QSFP112 native), 50Gb/s PAM4 (backward compatible)
+- **SerDes Technology:** 100Gb/s PAM4 (4 lanes)
+- **Part Number Example:** MCX75310AAS-NEAT
+
+**Dual-Port 200GbE/NDR200 (QSFP112):**
+- **Speeds:** 2x200Gb/s
+- **Form Factor:** 2x QSFP112
+- **Host Interface:** PCIe 5.0 x16
+- **SerDes Technology:** 50Gb/s PAM4 per port (4 lanes each)
+- **Part Number Example:** MCX75520AAS-NEAT
+
+#### ConnectX-7 OSFP Variants
+
+**Single-Port 400GbE/NDR (OSFP):**
+- **Speeds:** 400Gb/s
+- **Form Factor:** OSFP (Flat Top)
+- **Host Interface:** PCIe 5.0 x16
+- **SerDes Technology:** 100Gb/s PAM4 (4 lanes)
+- **Part Number Examples:**
+  - MCX75510AAS-NEAT (PCIe standard form factor)
+  - MCX75343AAS-NEAC1 (OCP 3.0 TSFF)
+  - MCX75343AMS-NEAC (OCP 3.0 TSFF, Multi-Host and Socket Direct)
+
+**Key OSFP Features:**
+- OSFP connectors support RHS (Riding Heatsink) cage only
+- Available in PCIe Half Height, Half Length (HHHL) form factor
+- Available in OCP 3.0 Tall Small Form Factor (TSFF)
+- Socket Direct capable variants available
+- Uses flat-top OSFP modules on NIC side (different from switch-side modules)
 
 ### Technical Specifications
 
-| Feature | ConnectX-7 Single-Port | ConnectX-7 Dual-Port |
-|---------|------------------------|----------------------|
-| Max Bandwidth | 400Gb/s | 2x200Gb/s |
-| Form Factor | QSFP112 | 2x QSFP112 |
-| SerDes Lanes | 4 lanes (8 for NDR IB) | 4 lanes per port |
-| Lane Speed | 100G PAM4 | 50G PAM4 per port |
-| PCIe Gen | 5.0 x16 | 5.0 x16 |
-| Protocols | Ethernet, InfiniBand NDR | Ethernet, InfiniBand NDR200 |
+| Feature | CX-7 Single QSFP112 | CX-7 Dual QSFP112 | CX-7 Single OSFP |
+|---------|---------------------|-------------------|------------------|
+| Max Bandwidth | 400Gb/s | 2x200Gb/s | 400Gb/s |
+| Form Factor | QSFP112 | 2x QSFP112 | OSFP (Flat Top) |
+| SerDes Lanes | 4 lanes | 4 lanes per port | 4 lanes |
+| Lane Speed | 100G PAM4 | 50G PAM4 per port | 100G PAM4 |
+| PCIe Gen | 5.0 x16 | 5.0 x16 | 5.0 x16 |
+| Protocols | Ethernet, InfiniBand NDR | Ethernet, InfiniBand NDR200 | Ethernet, InfiniBand NDR |
+| Variants | PCIe, OCP | PCIe, OCP | PCIe HHHL, OCP TSFF |
 
 ### Backward Compatibility
 
@@ -131,6 +161,8 @@ The QSFP112 connector is **backward compatible** with:
 - **QSFP+:** Lower speeds
 
 ### Supported Cables and Optics
+
+#### QSFP112 Cables (for QSFP112 variants)
 
 **Direct Attach Copper (DAC):**
 - QSFP112 400G DAC: 0.5m, 1m, 2m, 3m lengths
@@ -147,9 +179,33 @@ The QSFP112 connector is **backward compatible** with:
 - QSFP112 400G LR4 (single-mode, 10km)
 - QSFP112 200G SR4 (multimode, 100m) - 4 lanes @ 50G PAM4
 
+#### OSFP Cables (for OSFP variants)
+
+**Direct Attach Copper (DAC):**
+- OSFP 400G DAC: 0.5m, 1m, 2m, 3m lengths
+- OSFP Flat Top compatible passive copper
+
+**Active Optical Cables (AOC):**
+- OSFP 400G AOC: Up to 100m
+
+**Optical Transceivers:**
+- OSFP 400G SR8 (multimode, 100m) - 8 parallel lanes
+- OSFP 400G DR4 (single-mode, 500m) - 4 lanes @ 100G PAM4
+- OSFP 400G FR4 (single-mode, 2km)
+- OSFP 400G LR4 (single-mode, 10km)
+
+**Important Note:** ConnectX-7 OSFP variants use **flat-top OSFP modules** on the NIC side, which differs from switch-side modules. Ensure cable/transceiver compatibility with flat-top form factor.
+
 ### Example Part Numbers
+
+**QSFP112 Variants:**
 - **MCX75310AAS-NEAT:** ConnectX-7 VPI single-port QSFP112 NDR/400GbE
 - **MCX75520AAS-NEAT:** ConnectX-7 VPI dual-port QSFP112 2x200GbE
+
+**OSFP Variants:**
+- **MCX75510AAS-NEAT:** ConnectX-7 VPI single-port OSFP NDR/400GbE (PCIe HHHL)
+- **MCX75343AAS-NEAC1:** ConnectX-7 single-port OSFP NDR/400GbE (OCP 3.0 TSFF)
+- **MCX75343AMS-NEAC:** ConnectX-7 single-port OSFP NDR/400GbE (OCP 3.0 TSFF, Multi-Host, Socket Direct)
 
 ---
 
@@ -434,6 +490,7 @@ BlueField-4 with 800Gb/s networking will likely support:
 | QSFP56 | 4 | 50G PAM4 | 200Gb/s | QSFP28, QSFP+ | ConnectX-6 Dx/VPI |
 | QSFP112 | 4-8 | 100G PAM4 | 400Gb/s | QSFP56, QSFP28 | ConnectX-7, BF-3, CX-8 C8240 |
 | QSFP-DD | 8 | 50G PAM4 | 400Gb/s | QSFP28 | Not used in ConnectX/BF |
+| OSFP (Flat Top) | 4 | 100G PAM4 | 400Gb/s | No | ConnectX-7 (OSFP variants) |
 | OSFP | 8 | 100G PAM4 | 800Gb/s | No | - |
 | OSFP-RHS | 8 | 100G PAM4 | 800Gb/s | OSFP Flat Top | ConnectX-8 C8180 |
 | OSFP224 | 4 | 200G PAM4 | 800Gb/s | No | ConnectX-8 C8180 transceivers |
@@ -906,7 +963,8 @@ Third-party optics typically offer **40-70% cost savings** compared to OEM modul
 | **ConnectX-6 Lx** | SFP28 | 25G | SFP28 25G (DAC/AOC/SR/LR) | SFP+ 10G |
 | **ConnectX-6 Dx** | QSFP56 | 100G/200G | QSFP56 200G (DAC/AOC/SR4/DR4)<br>QSFP28 100G (DAC/AOC/SR4/LR4) | QSFP28 100G<br>QSFP+ 40G |
 | **ConnectX-6 VPI** | QSFP56 | 100G/200G | QSFP56 200G HDR IB<br>QSFP56 200GbE<br>QSFP28 100G EDR IB | QSFP28 100G<br>QSFP+ 40G |
-| **ConnectX-7 Single** | QSFP112 | 400G | QSFP112 400G (DAC/AOC/SR8/DR4/FR4/LR4) | QSFP56 200G<br>QSFP28 100G |
+| **ConnectX-7 Single QSFP112** | QSFP112 | 400G | QSFP112 400G (DAC/AOC/SR8/DR4/FR4/LR4) | QSFP56 200G<br>QSFP28 100G |
+| **ConnectX-7 Single OSFP** | OSFP Flat Top | 400G | OSFP 400G (DAC/AOC/SR8/DR4/FR4/LR4) | No |
 | **ConnectX-7 Dual** | 2x QSFP112 | 2x200G | QSFP112 200G per port<br>QSFP56 200G (native) | QSFP28 100G per port |
 | **ConnectX-8 C8180** | OSFP-RHS | 800G or 2x400G | OSFP 800G (DAC/AEC/AOC)<br>OSFP224 800G (SR8/DR4/FR4/LR4)<br>OSFP to 2xQSFP112 splitter | Limited - OSFP not backward compat with QSFP |
 | **ConnectX-8 C8240** | 2x QSFP112 | 2x400G | QSFP112 400G per port | QSFP56 200G<br>QSFP28 100G |
@@ -922,7 +980,7 @@ Third-party optics typically offer **40-70% cost savings** compared to OEM modul
 
 ### Port Configuration Flexibility
 
-#### ConnectX-7 and BlueField-3 (QSFP112)
+#### ConnectX-7 QSFP112 and BlueField-3
 
 | Configuration | Lanes | Speed per Lane | Use Case |
 |---------------|-------|----------------|----------|
@@ -931,6 +989,13 @@ Third-party optics typically offer **40-70% cost savings** compared to OEM modul
 | 4x 100G | 1 @ 100G PAM4 per port | 100G PAM4 | Breakout to four 100GbE ports |
 | 4x 50G | 1 @ 50G PAM4 per port | 50G PAM4 | Backward compat or breakout |
 | 4x 25G | 1 @ 25G NRZ per port | 25G NRZ | Backward compat to QSFP28 |
+
+#### ConnectX-7 OSFP
+
+| Configuration | Lanes | Speed per Lane | Use Case |
+|---------------|-------|----------------|----------|
+| 1x 400G | 4 @ 100G PAM4 | 100G PAM4 | Single 400GbE or NDR InfiniBand |
+| 1x 200G | 4 @ 50G PAM4 | 50G PAM4 | Single 200GbE (if supported) |
 
 #### ConnectX-8 C8180 (OSFP-RHS)
 
@@ -976,7 +1041,8 @@ Third-party optics typically offer **40-70% cost savings** compared to OEM modul
 | 25G | SFP28 | 1x 25G | NRZ | CX-6 Lx |
 | 100G | QSFP28 | 4x 25G | NRZ | CX-6 |
 | 200G | QSFP56 | 4x 50G | PAM4 | CX-6 Dx/VPI |
-| 400G | QSFP112 | 4x 100G | PAM4 | CX-7, BF-3, CX-8 C8240 |
+| 400G | QSFP112 | 4x 100G | PAM4 | CX-7 QSFP112, BF-3, CX-8 C8240 |
+| 400G | OSFP Flat Top | 4x 100G | PAM4 | CX-7 OSFP |
 | 800G | OSFP-RHS | 4x 200G | PAM4 | CX-8 C8180 |
 | 1.6T | OSFP-XD (TBD) | 8-16x | PAM4 | CX-9 (2026) |
 
