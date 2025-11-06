@@ -1027,7 +1027,7 @@ This document should be updated as:
 - Third-party compatibility lists expand
 - Pricing and availability change
 
-**Contribution:** To suggest updates or corrections, please contact the GNOS project maintainers.
+**Contribution:** To suggest updates or corrections, please contact the HedgeHog  project maintainers.
 
 ---
 
